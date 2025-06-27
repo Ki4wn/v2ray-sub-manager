@@ -1,5 +1,6 @@
 {
   "name": "v2ray-sub-manager",
+  "type": "module",
   "version": "1.0.0",
   "description": "V2ray Links and Subscription Manager",
   "main": "src/index.js",

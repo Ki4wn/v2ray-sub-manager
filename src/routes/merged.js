@@ -5,9 +5,10 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   const nodes = db.prepare('SELECT raw FROM nodes').all();
-  const list = nodes.map(n => n.raw.trim()).join('\n');
+  const list = nodes.map(n => n.raw).join('\n');
   const encoded = Buffer.from(list).toString('base64');
-  res.type('text/plain').send(encoded);
+  res.setHeader("Content-Type", "text/plain");
+  res.send(encoded);
 });
 
 export default router;

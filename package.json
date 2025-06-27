@@ -1,0 +1,17 @@
+{
+  "name": "v2ray-sub-manager",
+  "version": "1.0.0",
+  "description": "V2ray Links and Subscription Manager",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "Kian",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "better-sqlite3": "^12.1.1",
+    "express": "^5.1.0"
+  }
+}

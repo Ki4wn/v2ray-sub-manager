@@ -1,0 +1,7 @@
+services:
+  v2ray-sub-manager:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./db:/app/db

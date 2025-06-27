@@ -6,7 +6,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js"
   },
   "author": "Kian",
   "license": "ISC",
@@ -15,5 +16,8 @@
     "better-sqlite3": "^12.1.1",
     "express": "^5.1.0",
     "node-cron": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

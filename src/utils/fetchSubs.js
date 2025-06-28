@@ -4,7 +4,16 @@ import { Buffer } from 'node:buffer';
 
 export async function fetchAndStoreSubscription(url) {
   try {
-    const res = await axios.get(url, { responseType: 'text' });
+    const res = await axios.get(url, {
+      headers: {
+        'cache-control': 'no-cache',
+        "accept": '*/*',
+        'user-agent': 'Streisand/22 CFNetwork/3826.500.111.1.1 Darwin/24.4.0',
+        'accept-language': 'en-US,en;q=0.9',
+        'accept-encoding': 'gzip, deflate',
+        connection: 'keep-alive'
+      }
+    });
     const decoded = Buffer.from(res.data, 'base64').toString('utf-8');
     const lines = decoded.split('\n').map(l => l.trim()).filter(Boolean);
     for (const line of lines) {

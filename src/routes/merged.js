@@ -28,6 +28,7 @@ router.get('/', (req, res) => {
   }).join('\n');
   const encoded = Buffer.from(joined_list).toString('base64');
   res.setHeader("Content-Type", "text/plain");
+  res.set('profile-update-interval', '2');
   res.send(encoded);
 });
 

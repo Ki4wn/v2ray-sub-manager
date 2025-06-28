@@ -8,6 +8,9 @@ export async function fetchAndStoreSubscription(url) {
     const decoded = Buffer.from(res.data, 'base64').toString('utf-8');
     const lines = decoded.split('\n').map(l => l.trim()).filter(Boolean);
     for (const line of lines) {
+      const text_afterHash = line.split("#")[1];
+      const text_decoded = decodeURIComponent(text_afterHash);
+      if (text_decoded.includes("GB") || text_decoded.includes("اشتراکتون") || text_decoded.includes("📅")) continue;
       const type = line.startsWith('vmess://') ? 'vmess' :
         line.startsWith('vless://') ? 'vless' : 'other';
       if (!db.prepare('SELECT 1 FROM nodes WHERE raw = ?').get(line)) {
